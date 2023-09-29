@@ -40,20 +40,26 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+    // fonction login utilisable hors api de laravel login
+
     // public function login(Request $request){
 
-    //     $this->validate($request, [
-    //         'email' => 'required|email',
-    //         'password' => 'required',
-    //     ]);
+    //     return view('welcome');
 
-    //     if (auth()->attempt(array('email' => $request->email, 'password' => $request->password))) {
-
-    //         return view('dashboard');
-
-    //     }else {
-    //         return view('welcome');
-    //     }
+    //     if(Auth::attempt(['identifiant' => $request-> $identifiant, 'password' => $request-> $password]))
+    //         {
+    //             return view('dashboard');
+    //         }else{
+    //             return view('welcome')->with('status', 'Identifiant ou mot de passe incorect');
+    //         }
 
     // }
+
+    // public function logaout(){
+    //     Auth::logaout();
+    //     return view('Auth.login');
+    // }
+
+
 }

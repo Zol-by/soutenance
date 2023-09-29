@@ -13,182 +13,125 @@
 
         <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-menu-button-wide"></i><span>Gestion Insription</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-menu-button-wide"></i><span>Gestion Etudiants</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-            <a href="new_etudiant">
-                <i class="bi bi-circle"></i><span>Ajouter un étudiant</span>
-            </a>
-            </li>
-            <li>
-            <a href="liste_etudiant">
-                <i class="bi bi-circle"></i><span>Liste des étudiants</span>
-            </a>
+            <a href="{{route('create_etudiant')}}">
+                    <i class="bi bi-circle"></i><span>Ajouter un étudiant</span>
+                </a>
+                </li>
+                <li>
+                <a href="{{route('liste_etudiant')}}">
+                    <i class="bi bi-circle"></i><span>Liste des étudiants</span>
+                </a>
             </li>
         </ul>
         </li>
         <!-- End Gestion Insription -->
 
         <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-journal-text"></i><span>Gestion Enseignants</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="bi bi-circle"></i><span>Ajouter un enseignant</span>
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-journal-text"></i><span>Gestion Enseignants</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            </li>
-            <li>
-            <a href="forms-layouts.html">
-                <i class="bi bi-circle"></i><span>Liste des enseignants</span>
-            </a>
-            </li>
-
-        </ul>
+            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('store')}}" >
+                        <i class="bi bi-circle"></i><span>Ajouter un enseignant</span>
+                    </a>
+                </li>
+                    <li>
+                    <a href="{{route('liste_enseignant')}}">
+                        <i class="bi bi-circle"></i><span>Liste des enseignants</span>
+                    </a>
+             </li>
+            </ul>
         </li>
         <!-- End Gestion Enseignants -->
 
         <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-layout-text-window-reverse"></i><span>Directeurs Memoire</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-layout-text-window-reverse"></i><span>Gestion D.M et M.S</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-            <a href="tables-general.html">
-                <i class="bi bi-circle"></i><span>Ajouter un DM</span>
+            <a href="{{route('store_dm_ms')}}" >
+                <i class="bi bi-circle"></i><span>Ajouter D.M et M.S</span>
             </a>
             </li>
             <li>
-            <a href="tables-data.html">
-                <i class="bi bi-circle"></i><span>Liste des DM</span>
+            <a href="{{route('liste_dm_ms')}}">
+                <i class="bi bi-circle"></i><span>Liste des DM et M.S</span>
             </a>
             </li>
         </ul>
-        </li><!-- End Tables Nav -->
+        </li>
+        <!-- End Tables Nav -->
 
         <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-bar-chart"></i><span>Jury de Soutenance</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-bar-chart"></i><span>Gestion Soutenances</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-            <a href="charts-chartjs.html">
-                <i class="bi bi-circle"></i><span>Ajouter un jury</span>
-            </a>
-            </li>
-            <li>
-            <a href="charts-apexcharts.html">
-                <i class="bi bi-circle"></i><span>Liste des jurys</span>
-            </a>
-            </li>
-            <li>
-            <a href="dmde_soutenance">
-                <i class="bi bi-circle"></i><span>Demandes soutenance</span>
-            </a>
-            </li>
-        </ul>
+            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('store_jury_soutenance')}}" >
+                        <i class="bi bi-circle"></i><span>Enregistrer un jury</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('liste_jurys')}}">
+                        <i class="bi bi-circle"></i><span>Liste jurys enregistré</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('store_dmd_soutenance')}}">
+                        <i class="bi bi-circle"></i><span>Enregistrer la demande</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('liste_dmd_soutenance')}}">
+                        <i class="bi bi-circle"></i><span>Liste demandes attente</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('listes_dmd_soutenance')}}">
+                        <i class="bi bi-circle"></i><span>Liste demandes envoyés</span>
+                    </a>
+                </li>
+            </ul>
         </li>
         <!-- End Charts Nav -->
 
         <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-gem"></i><span>Gestion Salles Classe</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <i class="bi bi-circle"></i><span>Ajouter une salle classe</span>
+            <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-gem"></i><span>Gestion Etablissement</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            </li>
-            <li>
-            <a href="icons-remix.html">
-                <i class="bi bi-circle"></i><span>Lise des salles classes</span>
+            <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                <a href="{{route('store_salle')}}" >
+                        <i class="bi bi-circle"></i><span>Ajouter une salle</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('store_filiere')}}">
+                        <i class="bi bi-circle"></i><span>Ajouter une filière</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link " href="new_user">
+                <i class="bi bi-person"></i>
+                <span>Création des utilisateus</span>
             </a>
-            </li>
-        </ul>
         </li>
     </ul>
 </aside>
-
-
-  <!-- Modal ajouter classe -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="text-center"><strong>Enregistrement de la salle de classe</strong></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-            <div class="modal-body">
-                <form class="row g-3">
-                    <div class="col-md-6">
-                        <label for="inputName5" class="form-label">Nom de la salle</label>
-                        <input type="text" class="form-control" name="nom_prenom">
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="inputEmail5" class="form-label">Nombre place</label>
-                        <input type="number" class="form-control" name="nbr_place">
-                    </div>
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                        <button type="reset" class="btn btn-danger">Effacer champ</button>
-                    </div>
-                </form>
-            </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-<!-- Modal ajouter enseignant -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enregistrement d'un enseignant</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-        <form class="row g-3">
-            <div class="col-md-6">
-                <label for="inputName5" class="form-label">Nom et prénoms</label>
-                <input type="text" class="form-control" name="nom_prenom">
-            </div>
-
-            <div class="col-md-6">
-                <label for="inputEmail5" class="form-label">Téléphone</label>
-                <input type="number" class="form-control" name="phone">
-            </div>
-
-            <div class="col-md-6">
-            <label for="inputState" class="form-label">Niveau étude</label>
-                <select name="niveau" class="form-select">
-                    <option>Choisir le niveau ...</option>
-                    <option>1ere année</option>
-                    <option>2eme année</option>
-                    <option>3eme année</option>
-                    <option>4eme année</option>
-                    <option>5eme année</option>
-                    <option>6eme année</option>
-                    <option>7eme année</option>
-                </select>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
-                <button type="reset" class="btn btn-danger">Effacer champ</button>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer"></div>
-    </div>
-</div>
-</div>
 
 

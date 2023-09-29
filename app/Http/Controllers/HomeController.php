@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Inscription;
+use App\Models\Enseignant;
+use App\Models\Demande;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $TotalEtudiant = Inscription::count();
+        $TotalEnsiegnant = Enseignant::count();
+        $TotalDiplome = Demande::count();
+
+        return view('dashboard',compact('TotalEtudiant','TotalEnsiegnant','TotalDiplome'));
     }
 }

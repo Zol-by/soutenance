@@ -2,28 +2,19 @@
 <html lang="en">
 
 <head>
-
     @include('sources.head')
-
 </head>
 
 <body>
 
   <main>
     <div class="container">
-
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-              {{-- <a href="{{asset('welcome')}}" class="logo d-flex align-items-center w-auto">
-                  <img src="{{asset('assets/img/logo.png')}}" alt="">
-                  <span class="d-none d-lg-block">Gestion Soutenance</span>
-                </a>
-              </div> --}}
-              <!-- End Logo -->
 
               <div class="card mb-3">
 
@@ -31,28 +22,35 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4"><strong>Authentication</strong></h5>
-                  </div>
+                    <div class="text-center">
+                        <img src="{{asset('assets/img/logo.png')}}" alt="logo" width="115" class="rounded-circle">
+                    </div>
+                </div>
+
                 <form method="POST" action="{{ route('login') }}"  class="row g-3 needs-validation" novalidate>
                     @csrf
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">E-mail</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        {!! $errors->first('email', '<span style="color:red;">:message</span>') !!}
-                        <div class="invalid-feedback">svp entrer votre e-mail !</div>
-                      </div>
+                        <label for="yourUsername" class="form-label">Identifiant</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-person-plus"></i></span>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            {!! $errors->first('email', '<span style="color:red;">:message</span>') !!}
+                            <div class="invalid-feedback">svp entrer votre e-mail !</div>
+                        </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Mot de passe</label>
-                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <label for="yourUsername" class="form-label">Mot de passe</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-unlock"></i></span>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                      <div class="invalid-feedback">svp entrer votre mot de passe !</div>
+                            <div class="invalid-feedback">svp entrer votre mot de passe !</div>
+                        </div>
                     </div>
 
                     <div class="col-12">
@@ -77,7 +75,6 @@
             </div>
           </div>
         </div>
-
       </section>
 
     </div>

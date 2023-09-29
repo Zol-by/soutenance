@@ -43,6 +43,19 @@
                     </div>
 
                     <div class="col-12">
+                        <label for="yourName" class="form-label">Identifiant</label>
+                        <input id="identifiant" type="text" class="form-control @error('identifiant') is-invalid @enderror" name="identifiant" value="{{ old('identifiant') }}" required autocomplete="identifiant" autofocus>
+
+                            @error('identifiant')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        {{-- <input type="text" name="name" class="form-control" id="yourName" required> --}}
+                        <div class="invalid-feedback">svp, entrer votre identifiant !</div>
+                    </div>
+
+                    <div class="col-12">
                       <label for="yourUsername" class="form-label">E-mail</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -59,10 +72,10 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="yourEmail" class="form-label">Selectionnez le r$ole</label>
+                        <label for="yourEmail" class="form-label">Selectionnez le rôle</label>
                         <select class="form-select" name="role" aria-label="Default select example">
-                            <option selected>Selectionnez le role</option>
-                            <option value="2">Secretariat</option>
+                            <option selected>Selectionnez le rôle</option>
+                            <option value="2">Secretaire</option>
                             <option value="3">Surveillant</option>
                             <option value="1">Administrateur</option>
                         </select>

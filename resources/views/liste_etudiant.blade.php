@@ -1,127 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('sources.main')
 
-<head>
-
-    @include('sources.head')
-
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-
-  @include('sources.topbar')
-
- <!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-
-    @include('sources.nav')
-
-  <!-- End Sidebar-->
-
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Tableau Bord</h1>
-      <nav>
-        <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="dashboard">Accueil</a></li>
-          <li class="breadcrumb-item active">Liste des inscriptions</li>
-        </ol>
-      </nav>
-    </div>
-    <!-- End Page Title -->
-
-    <section class="section dashboard">
-      <div class="row">
-        <!-- Left side columns -->
-        <div class="col-lg-12">
-          <div class="row">
-
-            <!-- Formulaire inscription etudiant -->
-
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-                <div class="card-body">
-                  <h5 class="card-title">Liste des inscriptions</h5>
-
-                  <table class="table datatable">
-                    <thead>
-                        <tr>
-                        <th scope="col">N°</th>
-                        <th scope="col">Etudaint</th>
-                        <th scope="col">Filière</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                            <td>Brandon Jacob</td>
-                            <td>Designer</td>
-                            <td>28</td>
-                            <td>2016-05-25</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Bridie Kessler</td>
-                            <td>Developer</td>
-                            <td>35</td>
-                            <td>2014-12-05</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Ashleigh Langosh</td>
-                            <td>Finance</td>
-                            <td>45</td>
-                            <td>2011-08-12</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Angus Grady</td>
-                            <td>HR</td>
-                            <td>34</td>
-                            <td>2012-06-11</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Raheem Lehner</td>
-                            <td>Dynamic Division Officer</td>
-                            <td>47</td>
-                            <td>2011-04-19</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                </div>
-
-              </div>
-            </div>
-            <!-- End Formulaire inscription etudiant -->
-
-          </div>
+@section('contenu')
+         <!-- Page Title -->
+        <div class="pagetitle">
+            <h1>Tableau Bord</h1>
+            <nav>
+              <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="dashboard">Accueil</a></li>
+                <li class="breadcrumb-item active">Ajout étudiant</li>
+              </ol>
+            </nav>
         </div>
-        <!-- End Left side columns -->
+          <!-- End Page Title -->
 
-      </div>
-    </section>
+          <section class="section dashboard">
+            <div class="row">
+              <!-- Left side columns -->
+              <div class="col-lg-12">
+                <div class="row">
 
-  </main><!-- End #main -->
+                  <!-- Formulaire inscription etudiant -->
+                  <div class="col-12">
+                    <div class="card recent-sales overflow-auto">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">Liste des étudiants enregistrés</h5>
+                            @if (session('status'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>{{ session('status') }} !!</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                        <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th scope="col">N°</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prénoms</th>
+                                <th scope="col">Sexe</th>
+                                <th scope="col">Niveau</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($etudiant as $etud)
+                            <tr>
+                                <th>{{ $etud->id }}</th>
+                                <td>{{ $etud->nom }}</td>
+                                <td>{{ $etud->prenom }}</td>
+                                <td>{{ $etud->sexe }}</td>
+                                <td>{{ $etud->niveau }}</td>
+                                <td>
+                                    <a href="show-etudiant/{{$etud->id}}" class="btn btn-success btn-sm"><i class="bi bi-eye" title="détaille"></i></a>
 
-@include('sources.footer')
+                                    <a href="edit-etudiant/{{ $etud->id }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square" title="modifier"></i>
+                                    </a>
+                                    @if(Auth::user()->role == '1')
+                                    <a href="delete-etudiant/{{$etud->id}}"  class="btn btn-danger btn-sm" ><i class="bi bi-trash" title="supprimer"></i>
+                                    </a>
+                                    @else
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
 
-  @include('sources.js')
+                      </div>
 
-
-</body>
-
-</html>
+                    </div>
+                  </div>
+                  <!-- End Formulaire inscription etudiant -->
+                </div>
+              </div>
+              <!-- End Left side columns -->
+            </div>
+          </section>
+@endsection
