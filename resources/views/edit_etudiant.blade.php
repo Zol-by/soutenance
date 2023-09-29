@@ -1,0 +1,110 @@
+@extends('sources.main')
+
+@section('contenu')
+         <!-- Page Title -->
+        <div class="pagetitle">
+            <h1>Tableau Bord</h1>
+            <nav>
+              <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="dashboard">Accueil</a></li>
+                <li class="breadcrumb-item active">Modifier étudiant</li>
+              </ol>
+            </nav>
+        </div>
+          <!-- End Page Title -->
+
+          <section class="section dashboard">
+            <div class="row">
+              <!-- Left side columns -->
+              <div class="col-lg-12">
+                <div class="row">
+
+                  <!-- Formulaire inscription etudiant -->
+
+                  <div class="col-12">
+                    <div class="card recent-sales overflow-auto">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">Formulaire de modification des étudiants </h5>
+
+                        {{-- @if (session('status'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>{{ session('status') }} !!</strong>
+                                    <a href="{{route('liste_etudiant')}}"><span class="badge rounded-pill bg-primary p-2 ms-2 text-left">voir la liste des étudiants</span></a>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif --}}
+
+                    <form method="POST" action="{{route('update_etudiant',[$etudiant->id])}}" class="row g-3" enctype="multipart/form-data">
+                        @method('PATCH')
+                        @csrf
+                        <div class="col-md-6">
+                            <label for="inputName5" class="form-label">Nom de l'étudiant</label>
+                            <input type="text" class="form-control" name="nom" value="{{ $etudiant->nom }}" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputName5" class="form-label">Prénom de l'étudiant</label>
+                            <input type="text" class="form-control" name="prenom" value="{{ $etudiant->prenom }}" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputEmail5" class="form-label">Adresse e-mail de l'étudiant</label>
+                            <input type="email" class="form-control" name="email" value="{{ $etudiant->email }}" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputPassword5" class="form-label">Date de naissance de l'étudiant</label>
+                            <input type="date" class="form-control" name="date_naissance" value="{{ $etudiant->date_naissance }}">
+                        </div>
+
+                        <div class="col-6">
+                            <label for="inputAddress5" class="form-label">Sexe étudiant de l'étudiant</label>
+                            <input type="text" class="form-control" name="parents" value="{{ $etudiant->sexe }}" required>
+                            {{-- <select name="sexe" class="form-select" required>
+                                <option>Choisir le sexe ...</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                            </select> --}}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Niveau d'étude de l'étudiant</label>
+                            <input type="text" class="form-control" name="parents" value="{{ $etudiant->niveau }}" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Filière étudiant</label>
+                            <input type="text" class="form-control" name="filiere" value="{{ $etudiant->filiere }}"   required>
+
+                            {{-- <select name="filiere" class="form-select" required>
+                                <option>Choisir la filière ...</option>
+                                @foreach ($etudiant as $etud)
+                                <option value="{{ $fil->nom_filiere }}">{{ $fil->nom_filiere }} ({{ $fil->code_filiere }})</option>
+                                @endforeach
+                            </select> --}}
+                        </div>
+
+                        <div class="col-6">
+                            <label for="inputAddress2" class="form-label">Nom et prénoms de parent de l'étudiant</label>
+                            <input type="text" class="form-control" name="parents" value="{{ $etudiant->parents }}" required>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary"><strong>Modifier étudiant</strong></button>
+                            <a href="{{route('liste_etudiant')}}" class="btn btn-danger"><strong>Annuler la modification</strong></span></a>
+                        </div>
+                    </form>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- End Formulaire inscription etudiant -->
+
+                </div>
+              </div>
+              <!-- End Left side columns -->
+
+            </div>
+          </section>
+@endsection
